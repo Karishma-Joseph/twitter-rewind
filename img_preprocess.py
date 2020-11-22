@@ -25,7 +25,7 @@ def img_preprocess(img_path, text, count):
 
         extention = img_path.split('.')[-1]
 
-        img.save('./Dataset/img/'+str(count)+'.'+extention)
+        img.save('./Dataset/img/img'+str(count)+'.'+extention)
     except Exception as e:
         print('Error in img_preprocessing: ', e)
         pass
