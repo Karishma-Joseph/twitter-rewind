@@ -11,7 +11,8 @@ def downloadimages(query):
 				"image_directory": str(year)}
 
 	try: 
-		response.download(arguments) 
+		paths = response.download(arguments) 
+		print(paths)
 	
 	# Handling File NotFound Error	 
 	except FileNotFoundError: 
@@ -31,18 +32,19 @@ def downloadimages(query):
 			pass
 
 
-for month in range(1,13):
-	file = './Dataset/trending/' + str(year) + '/' + str(month)
-	try:
-		with open(file) as f:
-			print('Month: ', month)
-			reader = csv.reader(f,delimiter = ",")
-			for row in reader:
-				row_str = ','.join(row)
-				print(row_str)
-				downloadimages(row_str)
-			break
-	except Exception as e:
-		print('Error: ',e)
-		exit(0)
+# for month in range(1,13):
+# 	file = './Dataset/trending/' + str(year) + '/' + str(month)
+# 	try:
+# 		with open(file) as f:
+# 			print('Month: ', month)
+# 			reader = csv.reader(f,delimiter = ",")
+# 			for row in reader:
+# 				row_str = ','.join(row)
+# 				# print(row_str)
+# 				downloadimages(row_str)
+# 			break
+# 	except Exception as e:
+# 		print('Error: ',e)
+# 		exit(0)
+downloadimages("dog, cat, cow")
 print('Done!')
