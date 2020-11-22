@@ -20,10 +20,12 @@ def img_preprocess(img_path, text):
     # draw.text((x, y),"Sample Text",(r,g,b))
     # draw.text((width/2 - len(text)/2, height-15),text,(255,255,255),font=font)
     # thin border
-    draw.text((x-1, y), text, font=font, fill=shadowcolor)
-    draw.text((x+1, y), text, font=font, fill=shadowcolor)
-    draw.text((x, y-1), text, font=font, fill=shadowcolor)
-    draw.text((x, y+1), text, font=font, fill=shadowcolor)
+    # draw.text((x-1, y), text, font=font, fill=shadowcolor)
+    # draw.text((x+1, y), text, font=font, fill=shadowcolor)
+    # draw.text((x, y-1), text, font=font, fill=shadowcolor)
+    # draw.text((x, y+1), text, font=font, fill=shadowcolor)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill='black')
 
     draw.text((x, y), text, font=font, fill=fillcolor)
 
