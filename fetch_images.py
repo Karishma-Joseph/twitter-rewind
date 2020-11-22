@@ -1,23 +1,15 @@
 from google_images_download import google_images_download
 import csv
 
+year = input("Enter the year: ")
+
 def downloadimages(query):
 	response = google_images_download.googleimagesdownload() 
-	# keywords is the search query 
-	# format is the image file format 
-	# limit is the number of images to be downloaded 
-	# print urs is to print the image file url 
-	# size is the image size which can 
-	# be specified manually ("large, medium, icon") 
-	# aspect ratio denotes the height width ratio 
-	# of images to download. ("tall, square, wide, panoramic") 
 	arguments = {"keywords": query, 
-				#"format": "jpg", 
 				"limit":1,
 				"print_urls":True,
-				"image_directory":'D'}
-				#"size": "large"}
-				#"aspect_ratio": "panoramic" }
+				"image_directory": str(year)}
+
 	try: 
 		response.download(arguments) 
 	
@@ -25,8 +17,9 @@ def downloadimages(query):
 	except FileNotFoundError: 
 		arguments = {"keywords": query, 
 					"format": "jpg", 
-					"limit":4, 
+					"limit":1, 
 					"print_urls":True, 
+					"image_directory": str(year),
 					"size": "medium"} 
 					
 		# Providing arguments for the searched query 
@@ -37,8 +30,6 @@ def downloadimages(query):
 		except: 
 			pass
 
-
-year = input("Enter the year: ")
 
 for month in range(1,13):
 	file = './Dataset/trending/' + str(year) + '/' + str(month)
@@ -55,4 +46,3 @@ for month in range(1,13):
 		print('Error: ',e)
 		exit(0)
 print('Done!')
-# downloadimages("dog, cat")
