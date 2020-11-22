@@ -3,15 +3,19 @@ from urllib.request import urlopen
 import csv
 import contextlib
 
+# dictonary mapping number of days to each month
 days_per_month = {'01':'31','02':None,'03':'31','04':'30','05':'31','06':'30','07':'31','08':'31','09':'30','10':'31','11':'30','12':'31'}
 
+# accept year as input from user
 year = input("Enter the year: ")
 
+# check if leap year 
 if int(year)%4 == 0:
     days_per_month['02'] = 29
 else:
     days_per_month['02'] = 28
 
+# fetch the top 50 trends for everyday of that year
 for month,days in days_per_month.items():
     res_month = []
     for day in range(1,int(days)+1):

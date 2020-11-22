@@ -1,13 +1,16 @@
 import csv
 import os
 
+# accept year as input from user
 year = input('Enter year: ')
 
+# create output directories
 try:
     os.makedirs('./Dataset/trending/'+str(year))
 except Exception as e:
     print(e)
 
+# extract the tweets that are trending each month and the top tweet everyday
 for month in range(1,13):
     month_data = None
     top_of_month = set()
