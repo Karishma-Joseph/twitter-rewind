@@ -1,7 +1,14 @@
 from PIL import Image, ImageFont, ImageDraw
 
-def draw_text(img_path, text):
+def img_preprocess(img_path, text):
     img = Image.open(img_path)
+    #resize image
+    basewidth = 300
+    wpercent = (basewidth / float(img.size[0]))
+    hsize = int((float(img.size[1]) * float(wpercent)))
+    img = img.resize((basewidth, hsize), Image.ANTIALIAS)
+
+    #Draw text on image
     width, height = img.size
     x, y = width/2 - len(text), height-15
     fillcolor = "white"
