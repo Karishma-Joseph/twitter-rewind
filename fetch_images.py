@@ -1,5 +1,6 @@
 from google_images_download import google_images_download
 import csv
+import re
 
 year = input("Enter the year: ")
 
@@ -12,7 +13,7 @@ def downloadimages(query):
 
 	try: 
 		paths = response.download(arguments) 
-		print(paths)
+		print(paths[0]['dog'][0].split('/')[-1])
 	
 	# Handling File NotFound Error	 
 	except FileNotFoundError: 
