@@ -130,3 +130,11 @@ dmypy.json
 
 # Mac
 .DS_Store
+
+slides.py
+bbt.mp3
+credentials.json
+img001.jpeg
+img002.jpeg
+img003.jpeg
+out.mp4
